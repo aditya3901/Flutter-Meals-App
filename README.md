@@ -1,6 +1,8 @@
 # meals_app
 
-A new Flutter project.
+<!-- <p align="center">
+  <img src="https://github.com/aditya3901/Flutter-Meals-App/blob/main/image.png"/>
+</p> -->
 
 ## Getting Started
 
