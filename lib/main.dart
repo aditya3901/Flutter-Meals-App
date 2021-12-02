@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:meals_app/screens/categories_screen.dart';
 import 'package:meals_app/screens/category_meals_screen.dart';
+import 'package:meals_app/screens/filters_screen.dart';
+import 'package:meals_app/screens/meal_detail_screen.dart';
+import 'package:meals_app/screens/tabs_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
               ),
               headline1: const TextStyle(
                 fontSize: 20,
+                color: Colors.black,
                 // fontFamily: 'RobotoCondensed',
                 fontWeight: FontWeight.bold,
               ),
@@ -31,9 +34,20 @@ class MyApp extends StatelessWidget {
       // home: CategoriesScreen(),
       initialRoute: '/',
       routes: {
-        '/': (context) => CategoriesScreen(),
+        '/': (context) => TabsScreen(),
         CategoryMealsScreen.routeName: (context) => CategoryMealsScreen(),
+        MealDetailScreen.routeName: (context) => MealDetailScreen(),
+        FiltersScreen.routeName: (context) => FiltersScreen(),
       },
+      // onGenerateRoute: (settings) {
+      //   // if pushNamed() calls a route that is not defined in the routes table
+      //   return MaterialPageRoute(
+      //       builder: (context) =>
+      //           CategoriesScreen()); // then navigate to this route
+      // },
+      // onUnknownRoute: (settings) {
+      //   return MaterialPageRoute(builder: (context) => CategoriesScreen());
+      // },
     );
   }
 }
