@@ -1,8 +1,7 @@
 # meals_app
 
-<!-- <p align="center">
-  <img src="https://github.com/aditya3901/Flutter-Meals-App/blob/main/image.png"/>
-</p> -->
+![](https://github.com/aditya3901/Flutter-Meals-App/blob/main/1.png)
+![](https://github.com/aditya3901/Flutter-Meals-App/blob/main/2.png)
 
 ## Getting Started
 
