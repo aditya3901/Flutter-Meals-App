@@ -1,7 +1,9 @@
 # meals_app
 
 ![](https://github.com/aditya3901/Flutter-Meals-App/blob/main/1.png)
-![](https://github.com/aditya3901/Flutter-Meals-App/blob/main/2.png)
+<p align="center">
+  <img height="600" src="https://github.com/aditya3901/Flutter-Meals-App/blob/main/2.png"/>
+</p>
 
 ## Getting Started
 
