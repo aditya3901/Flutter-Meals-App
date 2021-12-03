@@ -4,6 +4,10 @@ import 'package:meals_app/widgets/main_drawer.dart';
 class FiltersScreen extends StatefulWidget {
   static const routeName = '/filters';
 
+  final Function saveFilters;
+  final Map<String, bool> currentFilters;
+  FiltersScreen(this.currentFilters, this.saveFilters);
+
   @override
   State<FiltersScreen> createState() => _FiltersScreenState();
 }
@@ -13,6 +17,15 @@ class _FiltersScreenState extends State<FiltersScreen> {
   var _vegetarian = false;
   var _vegan = false;
   var _lactoseFree = false;
+
+  @override
+  initState() {
+    _glutenFree = widget.currentFilters['gluten']!;
+    _lactoseFree = widget.currentFilters['lactose']!;
+    _vegan = widget.currentFilters['vegan']!;
+    _vegetarian = widget.currentFilters['vegetarian']!;
+    super.initState();
+  }
 
   Widget _buildSwitchListTile(String title, String subtitle, bool currentValue,
       Function(bool) updateValue) {
@@ -32,6 +45,34 @@ class _FiltersScreenState extends State<FiltersScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Your Filters"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              final selectedFilters = {
+                'gluten': _glutenFree,
+                'lactose': _lactoseFree,
+                'vegan': _vegan,
+                'vegetarian': _vegetarian,
+              };
+              widget.saveFilters(selectedFilters);
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: const Text(
+                    "Filters saved",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  action: SnackBarAction(
+                    textColor: Colors.amber,
+                    label: "Dismiss",
+                    onPressed:
+                        ScaffoldMessenger.of(context).hideCurrentSnackBar,
+                  ),
+                ),
+              );
+            },
+            icon: const Icon(Icons.save),
+          )
+        ],
       ),
       drawer: MainDrawer(),
       body: Column(
